@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'partials/header.html'%}
+
+	<body id="main">
+		<div class="container-fluid">
+    <nav class="navbar navbar-toggleable-md navbar-default bg-faded">
+			<input type="checkbox" id="navbar-toggle-cbox">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">myList</a>
+				<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#newnav">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</label>
+			</div>
+
+		  <div class="collapse navbar-collapse" id="newnav">
+				<ul class="nav navbar-nav mr-auto">
+					<li class="nav-item"><a href="../.." class="nav-link">List</a></li>
+					<li class="nav-item"><a href="../add" class="nav-link">Add</a></li>
+					<li class="nav-item active"><a href="#" class="nav-link">Edit</a></li>
+					<li class="nav-item"><a href="../imp" class="nav-link">Imprint</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<h1>Edit Item</h1>
+
+    <form action="">
+			<div class="form-group">
+				<label for="todo-text">Item</label>
+				<select class="form-control" id="sel1">
+					<option>Item no. 1</option>
+					<option>Item no. 2</option>
+					<option>Item no. 3</option>
+				</select>
+				<!-- <input type="text" class="form-control" id="todo-text" maxlength="160" placeholder="Name" value="Item no. 1"> -->
+			</div>
+      <div class="form-group">
+				<label for="todo-text">Description</label>
+				<input type="text" class="form-control" id="todo-text" maxlength="160" value="OLD TEXT">
+			</div>
+			<div>
+				<label for="todo-deadline">Deadline</label>
+				<input type="date" class="form-control" id="todo-deadline" value="2017-08-04">
+			</div>
+			<div>
+				<label for="todo-finished">Progress</label>
+				<input type="text" class="form-control" id="todo-fin" min="0" max="100" placeholder="%" value="97">
+			</div>
+			<div id="lower-btn">
+				<button type="submit" class="btn btn-primary">Edit</button>
+				<button type="submit" class="btn btn-danger">Cancel</button>
+			</div>
+		</form>
+		</div>
+	</body>
+</html>

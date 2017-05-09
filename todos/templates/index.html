@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+{% include 'partials/header.html'%}
+
+	<body id="main">
+		<div class="container-fluid">
+		<!-- Navigationsleiste oben -->
+		<nav class="navbar navbar-toggleable-md navbar-default bg-faded">
+			<input type="checkbox" id="navbar-toggle-cbox">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">myList</a>
+				<label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#newnav">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</label>
+			</div>
+
+		  <div class="collapse navbar-collapse" id="newnav">
+				<ul class="nav navbar-nav mr-auto">
+					<li class="nav-item active"><a href="#" class="nav-link">List</a></li>
+					<li class="nav-item"><a href="add" class="nav-link">Add</a></li>
+					<li class="nav-item"><a href="edit" class="nav-link">Edit</a></li>
+					<li class="nav-item"><a href="imp" class="nav-link">Imprint</a></li>
+				</ul>
+			</div>
+
+		</nav>
+
+		<h1>What's Next?</h1>
+
+		<!-- Formular für User-Input -->
+		<form action="">
+			<ul class="list-group">
+				{%  for todo in todos %}
+				<!--  -->
+        <li class="list-group-item">
+					<div class="input-group">
+							<!-- Input-Feld -->
+				      <input type="text" class="form-control" value= "{{todo.title}}" readonly="readonly">
+								<span class="input-group-btn">
+									<a href="/edit/{{todo.title}}" class="btn btn-warning" type="button">Edit</a>
+        					<a href="#" class="btn btn-danger" type="button">Delete</a>
+									<a href="#" class="btn btn-default disabled" role="button">{{todo.created}}</a>
+      					</span>
+			    </div>
+					<!-- Fortschrittsbalken -->
+					<div class="progress" id="pbar">
+  					<div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: {{todo.progress}}%;">
+    					{{todo.progress}}
+  					</div>
+					</div>
+				</li>
+				{%  endfor %}
+
+
+      </ul>
+		</form>
+		</div>
+	</body>
+</html>
