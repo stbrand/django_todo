@@ -10,7 +10,9 @@ urlpatterns = [
     url(r'^$', views.item_list, name='item_list'),
     url(r'^add/$', views.add, name='add'),
     url(r'^imp$', views.imp, name='imp'),
-    #url(r'^edit/{?P<id>\w{0,50}}$', views.add, name='add'),
+    url(r'^edit/(?P<pk>\d+)$', views.edit, name='edit'),
+    url(r'^delete/(?P<pk>\d+)$', views.delete, name='delete'),
+    url(r'^details/(?P<pk>\d+)$', views.details, name='details'),
 
     #url(r'^$', views.item_list, name='item_list'),
     #url(r'^$', views.item_list, name='item_list'),

@@ -9,11 +9,19 @@ from .models import TodoItem
 
 
 def item_list(request):
-    todos = TodoItem.objects.all()[:10]
+    todos = TodoItem.objects.all()
     context = {
         'todos':todos
     }
     return render(request, 'index.html', context)
+
+
+def details(request, pk):
+    todo = TodoItem.objects.get(pk=pk)
+    context = {
+        'todo':todo
+    }
+    return render(request, 'details.html', context)
 
 
 def imp(request):
@@ -35,15 +43,36 @@ def add(request):
         return render(request, 'add.html')
 
 
-'''
-def edit(request, title):
-    todo = TodoItem.objects.get(title=title)
+
+def edit(request, pk):
+    todo = TodoItem.objects.get(pk=pk)
     context = {
         'todo':todo
     }
-    return render(request, 'edit2.html', context)
-'''
 
+    if(request.method == 'POST'):
+        todo.title = request.POST['title']
+        todo.description = request.POST['description']
+        todo.progress = request.POST['progress']
+
+        todo.save()
+
+        return redirect('../../..')
+    else:
+        return render(request, 'edit.html', context)
+
+def delete(request, pk):
+    todo = TodoItem.objects.get(pk=pk)
+    context = {
+        'todo':todo
+    }
+
+    if(request.method == 'POST'):
+        todo.delete()
+
+        return redirect('../../..')
+    else:
+        return render(request, 'delete.html', context)
 
 
 '''
