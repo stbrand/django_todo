@@ -26,18 +26,18 @@
 			</div>
 		</nav>
 
-		<h1>Edit Item</h1>
+		<h1>Item Details</h1>
 
-    <form action="" method="post">
+    <form action="">
       <div class="form-group">
 		  {% csrf_token %}
 		  	<div>
 				<label for="title">Item Name</label>
-				<input type="text" class="form-control" id="title" name="title" maxlength="160" value="{{ todo.title }}">
+				<input type="text" class="form-control" id="title" name="title" maxlength="160" value="{{ todo.title }}" readonly="readonly">
 			</div>
 		  	<div>
 				<label for="description">Description</label>
-				<input type="text" class="form-control" id="description" name="description" maxlength="160" value="{{ todo.description }}">
+				<input type="text" class="form-control" id="description" name="description" maxlength="160" value="{{ todo.description }}" readonly="readonly">
 			</div>
 			<div>
 				<label for="created">Created</label>
@@ -45,11 +45,7 @@
 			</div>
 			<div>
 				<label for="prog">Progress</label>
-				<input type="text" class="form-control" id="progress" name="progress" min="0" max="100" placeholder="%" value="{{ todo.progress }}">
-			</div>
-			<div id="lower-btn">
-				<button type="submit" class="btn btn-primary" value="Submit">Edit</button>
-				<a href="../../.." style="margin-top:20px;" class="btn btn-danger">Cancel</a>
+				<input type="text" class="form-control" id="progress" name="progress" min="0" max="100" placeholder="%" value="{{ todo.progress }}" readonly="readonly">
 			</div>
 		</form>
 		</div>
