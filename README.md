@@ -1,5 +1,5 @@
 # TODO Website
-==============
+
 
 ## Functionalities:
 * view all todo entries
@@ -10,4 +10,5 @@
 
 ## Framework
 Django 1.11
+
 Bootstrap
